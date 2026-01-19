@@ -1,7 +1,8 @@
 from services.student_service import StudentService
 from models.student import Student
 from utils.validator import *
-
+import random
+import string
 class StudentUI:
     def __init__(self):
         self.service = StudentService()
@@ -121,13 +122,25 @@ class StudentUI:
             print("无效选择，请重新输入")
     # 删
     def delete_student(self):
-        sid = input_student_id("学号：")
-
-        deleted = self.service.delete_student(sid)
-        if not deleted:
-            print("未找到该学生，删除失败")
+        sid = input_student_id("请输入要删除的学号：")
+        # 查询原学生信息
+        student = self.service.get_student_by("student_id", sid)
+        if not student:
+            print("未找到该学生，无法删除")
             return
 
-        print("删除成功，已删除学生：")
-        print(deleted)
+        print("将删除的学生信息：", student)
+
+        # 生成验证码
+        code = ''.join(random.choices(string.ascii_uppercase + string.digits, k=5))
+        print(f"真的要删除吗？会非常非常久，请在下方输入验证码以确认删除喵：{code}")
+        confirm = input("验证码：").strip().upper()
+
+        if confirm != code:
+            print("验证码错误，删除已取消")
+            return
+
+        deleted = self.service.delete_student(sid)
+        print(f"删除成功 学号={deleted}")
+
 
