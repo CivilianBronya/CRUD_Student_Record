@@ -13,7 +13,7 @@ ENV/
 # SQLite 数据库
 *.db
 *.sqlite3
-
+*.sqlite
 # 日志文件
 logs/
 *.log
