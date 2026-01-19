@@ -1,0 +1,10 @@
+def show_menu():
+    print("=" * 46)
+    print("学生管理系统")
+    print("=" * 46)
+    print("1. 添加学生信息")
+    print("2. 删除学生信息")
+    print("3. 修改学生信息")
+    print("4. 显示所有学生信息")
+    print("0. 退出系统")
+    print("=" * 46)

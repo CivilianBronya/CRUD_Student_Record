@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual environment
+.venv/
+env/
+venv/
+ENV/
+
+# SQLite 数据库
+*.db
+*.sqlite3
+
+# 日志文件
+logs/
+*.log
+
+# PyCharm / IDE
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+
+
+# empty file will not push
+config/
+data/
+docs/
+models/class_group.py
+models/major.py
+models/score.py
+services/score_service.py
+utils/exceptions.py
